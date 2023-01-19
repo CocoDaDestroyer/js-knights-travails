@@ -1,0 +1,34 @@
+td{
+    height:8vh;
+    width: 8vh;
+    border:1.5px solid gray;
+    border-style: inset;
+}
+h1{
+    color:black;
+    text-align: center;
+}
+.whiteCell{
+    background-color: white;
+}
+.blackCell{
+    background-color: black;
+    color:white;
+}
+img{
+    height:5vh;
+    width: 4vh;
+}
+table{
+    text-align: center;
+    font-size: x-large;
+    margin-left: auto;
+    margin-right: auto;
+}
+button{
+    margin: 15px;
+}
+body{
+    text-align: center;
+    background-color: brown;
+}
