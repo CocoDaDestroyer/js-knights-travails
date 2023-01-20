@@ -1,21 +1,21 @@
 import { knightsTravails } from "./knightMoves";
+import { moveAnimation } from "./moveAnimation";
 const getPath = () =>{
     const travelSquares = []
-    const chessTable = document.querySelector('Table')
-    const squares = chessTable.querySelectorAll("td")
-    squares.forEach((square)=>{
-        square.addEventListener('click',function(square){
-            travelSquares.push(square.dataset.coordArray)
-        }) 
-    })
+    function addSquares(){
+        travelSquares.push(this.dataset.coordArray)
 
-    while(travelSquares.length>1){
-        squares.removeEventListener('click',function(square){
-            getCoords(square)
-        })
-        knightsTravails(travelSquares[0],travelSquares[1])
-        travelSquares.length = 0;
     }
-
+    const cellNodes = document.querySelectorAll("td");
+    cellNodes.forEach((cellNode)=>{
+        cellNode.addEventListener('click',addSquares) 
+        cellNode.addEventListener('click',function(){
+            if(travelSquares.length==2){
+                let arr2 = travelSquares[1].split(',').map(Number)
+                let arr1 = travelSquares[0].split(',').map(Number);
+                moveAnimation(knightsTravails(arr1,arr2))
+            }
+        })
+    })
 }
 export {getPath}

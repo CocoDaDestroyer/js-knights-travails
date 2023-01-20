@@ -20,8 +20,7 @@ const chessSquare = (x, y) => {
         predecessor = predecessor || newPredecessor;
     }
 
-    const name = () => `${x}, ${y}`;
-
+    const name = () => `${x},${y}`;
     // Evaluate current possible knight moves against offsets
     const possibleKnightMoves = () => {
         return KNIGHT_MOVES
@@ -67,14 +66,13 @@ const knightsTravails = (start, finish) => {
       const prevSquare = path[0].getPredecessor();
       path.unshift(prevSquare);
     }
-    console.log(`The shortest path was ${path.length - 1} moves!`);
-    console.log("The moves were:");
     let squareCoord = [];
     path.forEach((square) => {
         // console.log(square.name());
         squareCoord.push(square.name());
     });
-    console.log(squareCoord);
+    return squareCoord
+    
     
 };
 
